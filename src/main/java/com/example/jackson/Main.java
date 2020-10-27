@@ -1,5 +1,6 @@
 package com.example.jackson;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -119,7 +120,7 @@ class Main {
     objectMapper.writeValue(outputFile, trades);
     System.out.println("Serialized(wrote) successfully");
   }
-  
+
   public static void main(String[] args) throws JsonParseException, JsonMappingException, IOException {
     Main main = new Main();
 
@@ -140,13 +141,13 @@ class Main {
     /* use json input files as said in instructions
     /* Files - trades/tradesFancy/tradesFancier
     */
-    //main.parseJsonJacksomatically(tradesFancier, outputFile);
-
+    main.parseJsonJacksomatically(tradesFancier, outputFile);
+    main.parseJsonJacksomatically(tradesFancy, outputFile);
     // uncomment this to 
     main.writeImportantPurchasesToFile(50,trades, impTrades);
 
     // Uncomment in Milestone 4
-    // main.parseJsonJacksomaticallyPrivate(tradesFancier, outputFile);
+    main.parseJsonJacksomaticallyPrivate(tradesFancier, outputFile);
 
     System.out.println("Running completed");
   }
