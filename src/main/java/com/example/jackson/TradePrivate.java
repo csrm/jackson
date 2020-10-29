@@ -2,18 +2,14 @@
 package com.example.jackson;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TradePrivate {
 
-  @JsonProperty("1. symbol")
   private String symbol;
 
-  @JsonProperty("2. quantity")
   private int quantity;
 
-  @JsonProperty("3. purchaseDate")
   private String purchaseDate;
 
   public TradePrivate() {

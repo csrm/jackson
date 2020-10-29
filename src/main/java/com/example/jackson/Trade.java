@@ -6,11 +6,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Trade {
-  @JsonProperty("symbol")
+  @JsonProperty("1. symbol")
   public String symbol;
-  @JsonProperty("quantity")
+  @JsonProperty("2. quantity")
   public int quantity;
-  @JsonProperty("purchaseDate")
+  @JsonProperty("3. purchaseDate")
   public String purchaseDate;
   
   public Trade() {

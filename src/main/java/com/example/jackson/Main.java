@@ -141,7 +141,6 @@ class Main {
     /* use json input files as said in instructions
     /* Files - trades/tradesFancy/tradesFancier
     */
-    main.parseJsonJacksomatically(tradesFancier, outputFile);
     main.parseJsonJacksomatically(tradesFancy, outputFile);
     // uncomment this to 
     main.writeImportantPurchasesToFile(50,trades, impTrades);
