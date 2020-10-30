@@ -19,14 +19,14 @@ class Main {
 
   // Optional
   public void parseJsonManually(File file) throws FileNotFoundException, IOException {
-    if(true) {
-      ObjectMapper objectMapper = new ObjectMapper();
-      Trade[] trades = objectMapper.readValue(file, Trade[].class);
-      for (Trade trade : trades) {
-        System.out.println(trade);
-      }
-    }
-    else 
+    // if(true) {
+    //   ObjectMapper objectMapper = new ObjectMapper();
+    //   Trade[] trades = objectMapper.readValue(file, Trade[].class);
+    //   for (Trade trade : trades) {
+    //     System.out.println(trade);
+    //   }
+    // }
+    // else 
       manualParser(file);
 
   }
@@ -70,6 +70,17 @@ class Main {
     }
     br.close();
   }
+
+  public void parseNestedJsonJacksomatically(Container container) throws JsonParseException, JsonMappingException, IOException{
+     File outputFile = new File("src/main/java/com/example/jackson/nestedJson.json"); 
+     ObjectMapper objectMapper = new ObjectMapper();
+    //  objectMapper.writeValue(outputFile, container);
+    //  System.out.println("Serialized the Container object... Check the file "+outputFile+", for Json");
+     System.out.println("Now, Deserializing the Json from the same file");
+     Container c = objectMapper.readValue(outputFile, Container.class);
+     System.out.println(c);
+     System.out.println("Done Deserializing a nested Json");
+ }
 
   public void parseJsonJacksomatically(File inputFile, File outputFile) throws JsonParseException, JsonMappingException, IOException {
     ObjectMapper objectMapper = new ObjectMapper();
@@ -149,5 +160,10 @@ class Main {
     main.parseJsonJacksomaticallyPrivate(tradesFancier, outputFile);
 
     System.out.println("Running completed");
+
+    //Start of nested Serialization
+    Container c = new Container(new Map("500L", "PPFAS", new Point("ELS", "518L")));
+    main.parseNestedJsonJacksomatically(c);
+
   }
 }
