@@ -1,5 +1,5 @@
 pipeline {
-    agent { node { label 'local-docker'} }
+    agent { node { label 'master'} }
     stages {
         stage('build') {
             steps {
